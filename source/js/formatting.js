@@ -214,7 +214,8 @@ function formatPlotRole(role, characters, plot, section) {
 
 /***** Face Reserves *****/
 function formatFaceReserves(data) {
-    data = data.filter(item => checkActiveReserve(item.Timestamp) <= (defaultReserve + parseInt(item.Extension)));
+    let existing = staticClaims.map(item => item.Face);
+    data = data.filter(item => checkActiveReserve(item.Timestamp) <= (defaultReserve + parseInt(item.Extension)) && !existing.includes(item.Face));
 
     data.sort((a, b) => {
         if(a.Face < b.Face) {
