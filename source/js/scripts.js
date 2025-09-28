@@ -91,6 +91,13 @@ if(pageType === 'ST') {
     initPostRowDescription();
     initPostContentAlter();
     initDiscordTagging('#ST main > table > tbody > tr > td:last-child');
+    if(document.querySelector('.post.social')) {
+        initSocials();
+    } else if (document.querySelector('.post.comm')) {
+        initComms();
+    } else {
+        initPosts();
+    }
 }
 
 /********** Login **********/
@@ -187,7 +194,75 @@ if(pageType === 'Post') {
         inputWrap(icon, `input`, 'radio');
     });
     fancyBoxes();
+
+    //by sadri with edits by lux
+    //https://sadricodes.notion.site/Simple-Custom-BBCode-Replacer-1934114f263e80b3b8e0e018963daec4
+    showMoreCustomBBCode = (e) => {
+        if (e.getAttribute("hiding") == "true") {
+            e.setAttribute("hiding", false);
+            e.value = "Less";
+            const collapsed = document.querySelectorAll(".bbcCollapse");
+            for (const col of collapsed) {
+                col.classList.remove("bbcCollapse");
+                col.classList.add("bbcCollapsible");
+            }
+        } else {
+            e.setAttribute("hiding", true);
+            e.value = "More";
+            const uncollapse = document.querySelectorAll(".bbcCollapsible");
+            for (const col of uncollapse) {
+                col.classList.remove("bbcCollapsible");
+                col.classList.add("bbcCollapse");
+            }
+        }
+    };
+      
+    const setUpCustomBBcodeButtons = () => {
+        const buttonDestination = document.getElementById("bbcode-buttons");
+      
+        let cbHolder = ``;
+      
+        for (const group of bbcode) {
+            cbHolder += `<div class="customButtonSection ${group.extraClasses ?? ''}">`;
+            if (group.tags.length < 1) continue;
+            cbHolder += `<div class="cbHeader">${group.groupName}</div>`;
+            cbHolder += `<div class="buttonHolder ${group.collapsed ? "bbcCollapse" : "bbcNoCollapse"}">`
+            for (const bbc of group.tags) {
+                // Hide buttons that already exist
+                const exists = document.querySelector(`input[value=" ${bbc.tag.toUpperCase()} "]`);
+                if (exists) {
+                    exists.style.display = "none";
+                }
+                // Add the buttons in
+                let newButton = `<input type="button"
+                    class="codebuttons${bbc.collapsed ? ' bbcCollapse' : ''}"
+                    data-tag-name="${bbc.tag}"
+                    value="${bbc.displayName ? bbc.displayName : bbc.tag}"
+                    data-tag-type="${bbc.type}"
+                    ${bbc.desc ? `title="${bbc.desc}"` : ''}
+                    ${bbc.complexIndicator ? `data-complex-indicator="${bbc.complexIndicator}"` : ''}
+                    onclick="doSelectionReplace(this)">`;
+                cbHolder += newButton;
+            }
+            cbHolder += `</div></div>`;
+        }
+      
+        buttonDestination.innerHTML = cbHolder;
+    };
+      
+    setUpCustomBBcodeButtons();
 }
+
+const doSelectionReplace = (button) => {
+    if (button.dataset.tagName && button.dataset.tagType) {
+        let tagName = button.dataset.tagName;
+        const inputBox = document.forms["REPLIER"].elements["Post"];
+        const selRange = inputBox.value.substring(inputBox.selectionStart, inputBox.selectionEnd);
+    
+        const replacement = `[${tagName}${button.dataset.tagType == 'complex' ? `=${button.dataset.complexIndicator}` : ''}]${selRange.length > 0 ? selRange : (button.dataset.simpleIndicator ?? '')}[/${tagName}]`;
+        inputBox.setRangeText(replacement, inputBox.selectionStart, inputBox.selectionEnd);
+    }
+};
 
 /********** User CP & Messages **********/
 if(pageType === 'UserCP' || pageType === 'Msg') {
@@ -196,6 +271,7 @@ if(pageType === 'UserCP' || pageType === 'Msg') {
 
 	//Edit Profile Edits
 	if($('body.code-01').length > 0 && pageType === 'UserCP') {
+        document.querySelector('#ucpcontent form > table > tbody > tr:last-child > td').insertAdjacentHTML('afterbegin', completedButton);
         cpShift();
         splitProfile();
         ucpAesthetics();
@@ -211,6 +287,10 @@ if(pageType === 'UserCP' || pageType === 'Msg') {
         if(setHeightFields.length > 0) {
             fields = createFieldArray(setHeightFields);
             document.querySelectorAll(fields).forEach(field => field.classList.add('staticHeight'));
+        }
+        if(requiredFields.length > 0) {
+            fields = createFieldArray(requiredFields);
+            document.querySelectorAll(fields).forEach(field => field.querySelector('label').innerHTML = `<span>${field.querySelector('label').innerHTML} <span class="required">*</span></span>`);
         }
         
         toggleFields.forEach(toggle => {

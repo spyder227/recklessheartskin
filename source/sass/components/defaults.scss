@@ -1,4 +1,5 @@
 @import '../global/mixins.scss';
+@import '../global/extensions.scss';
 
 /*******************************
     Jcink Defaults
@@ -11,7 +12,8 @@
 #submenu,
 #userlinks,
 .wrapmini,
-a[href=""] {
+a[href=""],
+a[href="<i>No Information</i>"] {
   display: none !important;
 }
 
@@ -157,7 +159,7 @@ a[href=""] {
         }
 
         .input-wrap {
-            font-size: 1rem;
+            font-size: var(--text-size-md);
         }
 
         .qr_buttons {
@@ -171,7 +173,7 @@ a[href=""] {
             input {
                 margin-left: 0;
                 margin-right: 0;
-                font-size: 1rem;
+                font-size: var(--text-size-md);
             }
         }
 
@@ -190,7 +192,7 @@ a[href=""] {
             font-size: 0;
 
             a {
-                font-size: 1rem;
+                font-size: var(--text-size-md);
             }
         }
 
@@ -313,7 +315,7 @@ a[href=""] {
                             input,
                             select {
                                 margin: 0;
-                                font-size: 1rem;
+                                font-size: var(--text-size-md);
                                 line-height: 160%;
                             }
 
@@ -522,6 +524,8 @@ a[href=""] {
         & > form {
             display: flex;
             flex-direction: column;
+            font-size: 0;
+            line-height: 0;
 
             & > br,
             .maintitle + .pformstrip {
@@ -542,26 +546,29 @@ a[href=""] {
 
                                 & > td {
                                     width: 100%;
+    
+                                    fieldset {
+                                        max-width: none;
+                                        width: 100%;
+                                        box-sizing: border-box;
+                                        input,
+                                        select,
+                                        textarea {
+                                            width: 100%;
+                                        }
+                                    }
 
                                     &:first-child,
                                     &:last-child > div > table > tbody > tr > td {
                                         display: grid;
-                                        grid-template-columns: repeat(2, calc(50% - (var(--space-lg) / 2)));
                                         gap: var(--space-lg);
+
+                                        @include mq-up(sm) {
+                                            grid-template-columns: repeat(2, calc(50% - (var(--space-lg) / 2)));
+                                        }
     
                                         & > br {
                                             display: none;
-                                        }
-    
-                                        fieldset {
-                                            width: 100%;
-                                            box-sizing: border-box;
-                                            
-                                            input,
-                                            select,
-                                            textarea {
-                                                width: 100%;
-                                            }
                                         }
     
                                         & > div > b {
@@ -579,6 +586,55 @@ a[href=""] {
                                     &:first-child {
                                         fieldset {
                                             grid-column: 1 / -1;
+
+                                            &:nth-of-type(2),
+                                            &:nth-of-type(3) {
+                                                table > tbody > tr {
+                                                    display: grid;
+                                                    gap: var(--space-xs);
+
+                                                    @include mq-down(sm) {
+                                                        &:first-child > td:last-child {
+                                                            display: none;
+                                                        }
+                                                    }
+
+                                                    @include mq-up(sm) {
+                                                        grid-template-columns: 1fr 1fr;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    &:last-child {
+                                        padding-top: var(--space-lg);
+
+                                        & > div > b,
+                                        & > div > br {
+                                            display: none;
+                                        }
+
+                                        & > div {
+                                            & > table {
+                                                display: block;
+
+                                                & > tbody {
+                                                    display: block;
+
+                                                    & > tr {
+                                                        display: block;
+
+                                                        & > td {
+                                                            fieldset {
+                                                                &:last-of-type:nth-of-type(odd) {
+                                                                    grid-column: 1 / -1;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -886,4 +942,9 @@ a[href=""] {
         line-height: 200%;
         z-index: 3;
     }
+}
+
+/***** No Results ******/
+#board-message {
+    padding: var(--space-lg);
 }
