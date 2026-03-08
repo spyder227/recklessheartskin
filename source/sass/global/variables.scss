@@ -5,6 +5,17 @@
     Variables
 ********************************/
 :root {
+    --bg-primary: rgb(105, 105, 105);
+    --bg-secondary: rgb(65, 65, 65);
+
+    --accent-primary: rgb(133, 69, 49);
+    --accent-secondary: rgb(150, 80, 60);
+
+    --accent-primary-60: rgba(133, 69, 49, 0.6);
+    --accent-primary-80: rgba(133, 69, 49, 0.8);
+
+    --text-on-accent: rgb(255, 255, 255);
+
     --text-size-xs: 8px;
     --text-size-sm: 10px;
     --text-size-md: 12px;
@@ -31,4 +42,17 @@
     @include mq-up(xs) {
         --size-alert-max-height: 150px;
     }
+}
+
+body.light {
+    --bg-primary: rgb(215, 215, 215);
+    --bg-secondary: rgb(225, 225, 225);
+
+    --accent-primary: rgb(133, 69, 49);
+    --accent-secondary: rgb(150, 80, 60);
+
+    --accent-primary-60: rgba(133, 69, 49, 0.6);
+    --accent-primary-80: rgba(133, 69, 49, 0.8);
+
+    --text-on-accent: rgb(255, 255, 255);
 }

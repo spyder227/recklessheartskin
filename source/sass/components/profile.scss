@@ -5,6 +5,18 @@
     Profile
 ********************************/
 .profile {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    .profile--header {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: 2em;
+    }
+
     &--account {
         display: grid;
         grid-template-columns: var(--size-switcher-image) auto;
