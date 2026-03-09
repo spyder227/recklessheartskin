@@ -42,7 +42,7 @@ a {
   text-decoration: none; }
 
 .fa-brands {
-  font-family: 'Font Awesome 6 Brands' !important;
+  font-family: 'Font Awesome 7 Brands' !important;
   font-style: normal !important;
   font-weight: 700 !important; }
 
@@ -50,7 +50,7 @@ a {
 .fa-regular,
 .fa-light,
 .fa-thin {
-  font-family: 'Font Awesome 6 Pro' !important;
+  font-family: 'Font Awesome 7 Pro' !important;
   font-style: normal !important; }
 
 .fa-solid {
@@ -106,13 +106,22 @@ a {
     Variables
 ********************************/
 :root {
-  --bg-primary: rgb(105, 105, 105);
-  --bg-secondary: rgb(65, 65, 65);
-  --accent-primary: rgb(133, 69, 49);
+  --bg-primary: rgb(42, 42, 42);
+  --bg-secondary: rgb(91, 91, 91);
+  --accent-primary: rgb(165 91 67);
   --accent-secondary: rgb(150, 80, 60);
-  --accent-primary-60: rgba(133, 69, 49, 0.6);
+  --accent-tertiary: rgb(173, 82, 54);
   --accent-primary-80: rgba(133, 69, 49, 0.8);
-  --text-on-accent: rgb(255, 255, 255);
+  --accent-primary-60: rgba(133, 69, 49, 0.6);
+  --accent-primary-40: rgba(133, 69, 49, 0.4);
+  --accent-primary-20: rgba(133, 69, 49, 0.2);
+  --accent-secondary-80: rgba(150, 80, 60, 0.8);
+  --accent-secondary-60: rgba(150, 80, 60, 0.6);
+  --accent-secondary-40: rgba(150, 80, 60, 0.4);
+  --accent-secondary-20: rgba(150, 80, 60, 0.2);
+  --border-primary: rgb(20, 20, 20);
+  --text-on-accent: rgb(10, 10, 10);
+  --text-on-accent-alt: rgb(225, 225, 225);
   --text-size-xs: 8px;
   --text-size-sm: 10px;
   --text-size-md: 12px;
@@ -140,9 +149,18 @@ body.light {
   --bg-secondary: rgb(225, 225, 225);
   --accent-primary: rgb(133, 69, 49);
   --accent-secondary: rgb(150, 80, 60);
-  --accent-primary-60: rgba(133, 69, 49, 0.6);
+  --accent-tertiary: rgb(96, 45, 30);
   --accent-primary-80: rgba(133, 69, 49, 0.8);
-  --text-on-accent: rgb(255, 255, 255); }
+  --accent-primary-60: rgba(133, 69, 49, 0.6);
+  --accent-primary-40: rgba(133, 69, 49, 0.4);
+  --accent-primary-20: rgba(133, 69, 49, 0.2);
+  --accent-secondary-80: rgba(150, 80, 60, 0.8);
+  --accent-secondary-60: rgba(150, 80, 60, 0.6);
+  --accent-secondary-40: rgba(150, 80, 60, 0.4);
+  --accent-secondary-20: rgba(150, 80, 60, 0.2);
+  --border-primary: rgb(51, 51, 51);
+  --text-on-accent: rgb(225, 225, 225);
+  --text-on-accent-alt: rgb(10, 10, 10); }
 
 /*******************************
     Extensions
@@ -286,7 +304,7 @@ tag-labels {
   .alert-select .alert-section .input-wrap:not(:last-child) {
     margin-bottom: var(--space-xs); }
   .alert-select .alert-section .input-wrap .fancy-input::before {
-    font-family: 'Font Awesome 6 Pro'; }
+    font-family: 'Font Awesome 7 Pro'; }
   .alert-select .alert-section label {
     cursor: pointer; }
   .alert-select .alert-section hr {
@@ -591,7 +609,8 @@ tag-image[data-ratio="16:9"],
       -ms-flex-align: center;
           align-items: center;
   z-index: 10;
-  background: white; }
+  background: var(--accent-primary);
+  padding: 3px; }
   .nav--top {
     z-index: 11;
     top: 0;
@@ -616,6 +635,11 @@ tag-image[data-ratio="16:9"],
           -ms-flex-wrap: wrap;
               flex-wrap: wrap;
       max-width: calc(100% - var(--size-menu)); }
+      .nav--top #navstrip a {
+        color: var(--text-on-accent);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: "Noto Rashi Hebrew", serif; }
   .nav--left {
     top: 0;
     left: 0;
@@ -627,7 +651,8 @@ tag-image[data-ratio="16:9"],
         -ms-flex-direction: column;
             flex-direction: column;
     border-right: 1px solid black;
-    gap: var(--space-md); }
+    gap: var(--space-md);
+    font-size: 12px; }
   .nav .button--menu,
   .nav > a {
     display: -webkit-box;
@@ -650,7 +675,8 @@ tag-image[data-ratio="16:9"],
     width: 100%;
     height: var(--size-menu-width);
     padding: 0;
-    margin: 0; }
+    margin: 0;
+    color: var(--text-on-accent); }
     body.g-2 .nav .button--menu.guestOnly,
     body.g-4 .nav .button--menu.staffOnly, body.g-2
     .nav > a.guestOnly,
@@ -900,38 +926,146 @@ tag-image[data-ratio="16:9"],
 #idx {
   background: var(--bg-primary); }
 
+#delcookiesrow {
+  display: none; }
+
 header {
   display: block;
   margin: 20px auto 20px auto;
   text-align: center; }
   header #rh-header {
-    width: 100%;
-    height: 300px;
+    width: 80%;
+    height: 400px;
     position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
+    display: block;
+    margin: auto; }
+    header #rh-header #rh-header-box {
+      width: 100%;
+      height: 400px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      background: var(--accent-primary-20); }
+      header #rh-header #rh-header-box .rh-header-left {
+        width: 5%;
+        height: 100%;
+        border-left: 3px solid var(--accent-primary);
+        border-top: 3px solid var(--accent-primary);
+        border-bottom: 3px solid var(--accent-primary); }
+      header #rh-header #rh-header-box .rh-header-middle {
+        width: 90%;
+        height: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 20px; }
+        header #rh-header #rh-header-box .rh-header-middle .rh-info-text {
+          width: 200px;
+          height: 280px;
+          background: var(--accent-secondary-80);
+          margin: 10px;
+          display: -ms-grid;
+          display: grid;
+          padding: 10px;
+          gap: 5px; }
+          header #rh-header #rh-header-box .rh-header-middle .rh-info-text a {
+            color: var(--text-on-accent); }
+          header #rh-header #rh-header-box .rh-header-middle .rh-info-text .rh-info-nav {
+            width: 100%;
+            border-left: 0px solid var(--accent-tertiary);
+            background: var(--accent-primary);
+            -webkit-transition-duration: 0.1s;
+                    transition-duration: 0.1s;
+            position: relative;
+            font-family: "Noto Rashi Hebrew", serif;
+            letter-spacing: 1px;
+            z-index: 1;
+            font-size: 14px; }
+          header #rh-header #rh-header-box .rh-header-middle .rh-info-text .rh-info-nav:hover {
+            border-left: 8px solid var(--accent-tertiary);
+            -webkit-transition-duration: 0.1s;
+                    transition-duration: 0.1s; }
+          header #rh-header #rh-header-box .rh-header-middle .rh-info-text .rh-info-staff {
+            width: 100%;
+            height: 80px;
+            background: var(--accent-primary);
+            position: relative;
+            padding: 10px;
+            z-index: 1; }
+            header #rh-header #rh-header-box .rh-header-middle .rh-info-text .rh-info-staff img {
+              width: 60px;
+              height: 60px;
+              border-radius: 100px;
+              -o-object-fit: cover;
+                 object-fit: cover;
+              position: relative;
+              -webkit-transition-duration: 0.3s;
+                      transition-duration: 0.3s;
+              -webkit-filter: grayscale(1);
+                      filter: grayscale(1); }
+            header #rh-header #rh-header-box .rh-header-middle .rh-info-text .rh-info-staff img:hover {
+              -webkit-transition-duration: 0.3s;
+                      transition-duration: 0.3s;
+              border: 5px solid var(--accent-tertiary);
+              -webkit-filter: grayscale(0);
+                      filter: grayscale(0); }
+        header #rh-header #rh-header-box .rh-header-middle .rh-info-img {
+          width: 600px;
+          height: 280px;
+          background: var(--accent-secondary-80);
+          margin: 10px;
+          padding: 10px; }
+          header #rh-header #rh-header-box .rh-header-middle .rh-info-img img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+               object-fit: cover;
+            -webkit-filter: grayscale(1);
+                    filter: grayscale(1); }
+      header #rh-header #rh-header-box .rh-header-right {
+        width: 5%;
+        height: 100%;
+        border-right: 3px solid var(--accent-primary);
+        border-top: 3px solid var(--accent-primary);
+        border-bottom: 3px solid var(--accent-primary); }
+    header #rh-header #rh-header-text {
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      height: fit-content;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      bottom: 80px; }
     header #rh-header a {
-      margin: 150px auto 150px auto;
+      margin: auto;
       display: block; }
       header #rh-header a h1 {
         font-family: 'Chillax', sans-serif;
         text-transform: lowercase;
         font-size: 120px;
         color: var(--accent-primary);
-        margin: 0px auto 30px auto; }
+        margin: 0px auto 30px auto;
+        font-weight: 700; }
+        @media (max-width: 1150px) {
+          header #rh-header a h1 {
+            line-height: 70%; } }
       header #rh-header a .rh-tagline {
         width: 500px;
         margin: 0px auto 0px auto;
-        background: var(--accent-primary-80);
+        background: var(--accent-secondary);
         text-transform: uppercase;
         padding: 0px 5px 0px 5px;
         color: var(--text-on-accent);
         letter-spacing: 1px;
-        font-size: 14px;
+        font-size: 12px;
         font-family: "Noto Rashi Hebrew", serif;
         -webkit-clip-path: polygon(5% 0, 100% 0%, 95% 100%, 0% 100%); }
+        @media (max-width: 1150px) {
+          header #rh-header a .rh-tagline {
+            top: -20px; } }
 
 /*******************************
     Extensions
@@ -969,6 +1103,138 @@ header {
 /*******************************
     Board Stats
 ********************************/
+#rh-stats {
+  width: 80%;
+  height: 400px;
+  position: relative;
+  display: block;
+  margin: auto auto 30px auto; }
+  #rh-stats h2 {
+    text-align: center;
+    font-family: 'Chillax', sans-serif;
+    text-transform: lowercase;
+    font-size: 80px;
+    color: var(--accent-primary);
+    margin: 30px auto 0px auto;
+    font-weight: 700; }
+  #rh-stats #rh-stats-box {
+    width: 100%;
+    height: 400px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background: var(--accent-primary-20); }
+    #rh-stats #rh-stats-box .rh-stats-left {
+      width: 5%;
+      height: 100%;
+      border-left: 3px solid var(--accent-primary);
+      border-top: 3px solid var(--accent-primary);
+      border-bottom: 3px solid var(--accent-primary); }
+    #rh-stats #rh-stats-box .rh-stats-middle {
+      width: 90%;
+      height: 100%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 20px;
+      gap: 10px; }
+      #rh-stats #rh-stats-box .rh-stats-middle .stats--recent {
+        width: 500px;
+        background: var(--accent-primary-40);
+        text-transform: lowercase;
+        font-size: 14px;
+        font-family: "Open Sans", sans-serif;
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent-primary) transparent;
+        overflow-x: hidden;
+        overflow-y: auto; }
+        #rh-stats #rh-stats-box .rh-stats-middle .stats--recent a {
+          text-transform: uppercase;
+          color: var(--accent-tertiary);
+          font-size: 14px;
+          font-family: "Noto Rashi Hebrew", serif; }
+        #rh-stats #rh-stats-box .rh-stats-middle .stats--recent tbody {
+          display: -ms-grid;
+          display: grid;
+          gap: 5px; }
+        #rh-stats #rh-stats-box .rh-stats-middle .stats--recent td {
+          display: block; }
+        #rh-stats #rh-stats-box .rh-stats-middle .stats--recent .recent-topics-date {
+          display: inline; }
+        #rh-stats #rh-stats-box .rh-stats-middle .stats--recent tr {
+          line-height: 100%;
+          margin: 10px; }
+      #rh-stats #rh-stats-box .rh-stats-middle .stats-right {
+        width: 500px;
+        display: -ms-grid;
+        display: grid;
+        gap: 10px; }
+        #rh-stats #rh-stats-box .rh-stats-middle .stats-right .stats--online {
+          padding: 15px;
+          height: 140px;
+          background: var(--accent-primary-40);
+          text-transform: lowercase;
+          font-size: 14px;
+          font-family: "Open Sans", sans-serif;
+          scrollbar-width: thin;
+          scrollbar-color: var(--accent-primary) transparent;
+          overflow-x: hidden;
+          overflow-y: auto;
+          border-top: 4px solid var(--accent-primary);
+          border-bottom: 4px solid var(--accent-primary); }
+          #rh-stats #rh-stats-box .rh-stats-middle .stats-right .stats--online a {
+            text-transform: capitalize;
+            font-size: 14px;
+            color: var(--text-on-accent-alt); }
+        #rh-stats #rh-stats-box .rh-stats-middle .stats-right .stats-box-today {
+          height: 100px;
+          padding: 15px;
+          background: var(--accent-primary-40);
+          line-height: 120%;
+          scrollbar-width: thin;
+          scrollbar-color: var(--accent-primary) transparent;
+          overflow-x: hidden;
+          overflow-y: auto; }
+          #rh-stats #rh-stats-box .rh-stats-middle .stats-right .stats-box-today a {
+            text-transform: capitalize;
+            font-size: 12px;
+            font-family: "Open Sans", sans-serif;
+            color: var(--text-on-accent-alt); }
+        #rh-stats #rh-stats-box .rh-stats-middle .stats-right .stats-box-links {
+          height: 100%;
+          padding: 10px;
+          background: var(--accent-primary-40);
+          display: -ms-grid;
+          display: grid;
+          -ms-grid-columns: auto auto;
+          grid-template-columns: auto auto;
+          gap: 5px; }
+          #rh-stats #rh-stats-box .rh-stats-middle .stats-right .stats-box-links a {
+            background: var(--accent-primary);
+            width: 100%;
+            height: 100%;
+            border-left: 0px solid var(--accent-tertiary);
+            -webkit-transition-duration: 0.1s;
+                    transition-duration: 0.1s;
+            font-family: "Noto Rashi Hebrew", serif;
+            letter-spacing: 1px;
+            font-size: 14px;
+            color: var(--text-on-accent);
+            text-align: center;
+            text-transform: uppercase; }
+          #rh-stats #rh-stats-box .rh-stats-middle .stats-right .stats-box-links a:hover {
+            border-left: 8px solid var(--accent-tertiary);
+            -webkit-transition-duration: 0.1s;
+                    transition-duration: 0.1s; }
+    #rh-stats #rh-stats-box .rh-stats-right {
+      width: 5%;
+      height: 100%;
+      border-right: 3px solid var(--accent-primary);
+      border-top: 3px solid var(--accent-primary);
+      border-bottom: 3px solid var(--accent-primary); }
+
 /*******************************
     Extensions
 

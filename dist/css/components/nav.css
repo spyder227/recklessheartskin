@@ -21,7 +21,8 @@
   position: fixed;
   align-items: center;
   z-index: 10;
-  background: white; }
+  background: var(--accent-primary);
+  padding: 3px; }
   .nav--top {
     z-index: 11;
     top: 0;
@@ -36,6 +37,11 @@
       display: flex;
       flex-wrap: wrap;
       max-width: calc(100% - var(--size-menu)); }
+      .nav--top #navstrip a {
+        color: var(--text-on-accent);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: "Noto Rashi Hebrew", serif; }
   .nav--left {
     top: 0;
     left: 0;
@@ -43,7 +49,8 @@
     height: 100vh;
     flex-direction: column;
     border-right: 1px solid black;
-    gap: var(--space-md); }
+    gap: var(--space-md);
+    font-size: 12px; }
   .nav .button--menu,
   .nav > a {
     display: flex;
@@ -56,7 +63,8 @@
     width: 100%;
     height: var(--size-menu-width);
     padding: 0;
-    margin: 0; }
+    margin: 0;
+    color: var(--text-on-accent); }
     body.g-2 .nav .button--menu.guestOnly,
     body.g-4 .nav .button--menu.staffOnly, body.g-2
     .nav > a.guestOnly,

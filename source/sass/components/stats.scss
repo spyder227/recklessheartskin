@@ -4,3 +4,163 @@
 /*******************************
     Board Stats
 ********************************/
+
+#rh-stats {
+    width: 80%;
+    height: 400px;
+    position: relative;
+    display: block;
+    margin: auto auto 30px auto;
+
+    h2 {
+        text-align: center;
+        font-family: 'Chillax', sans-serif;
+        text-transform: lowercase;
+        font-size: 80px;
+        color: var(--accent-primary);
+        margin: 30px auto 0px auto;
+        font-weight: 700;
+    }
+
+    #rh-stats-box {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            background: var(--accent-primary-20);
+
+            .rh-stats-left {
+                width: 5%;
+                height: 100%;
+                border-left: 3px solid var(--accent-primary);
+                border-top: 3px solid var(--accent-primary);
+                border-bottom: 3px solid var(--accent-primary);
+            }
+
+            .rh-stats-middle {
+                width: 90%;
+                height: 100%;
+                display: flex;
+                padding: 20px;
+                gap: 10px;
+
+                .stats--recent {
+                    width: 500px;
+                    background: var(--accent-primary-40);
+                    text-transform: lowercase;
+                    font-size: 14px;
+                    font-family: "Open Sans", sans-serif;
+                    scrollbar-width: thin;
+                    scrollbar-color: var(--accent-primary) transparent;
+                    overflow-x: hidden;
+                    overflow-y: auto;
+
+                    a {
+                        text-transform: uppercase;
+                        color: var(--accent-tertiary);
+                        font-size: 14px;
+                        font-family: "Noto Rashi Hebrew", serif;
+                    }
+
+                    tbody {
+                        display: grid;
+                        gap: 5px;
+                    }
+
+                    td {
+                        display: block;
+                    }
+
+                    .recent-topics-date {
+                        display: inline;
+                    }
+
+                    tr {
+                        line-height: 100%;
+                        margin: 10px;
+                    }
+                }
+
+                .stats-right {
+                    width: 500px;
+                    display: grid;
+                    gap: 10px;
+
+                    .stats--online {
+                    padding: 15px;
+                    height: 140px;
+                    background: var(--accent-primary-40);
+                    text-transform: lowercase;
+                    font-size: 14px;
+                    font-family: "Open Sans", sans-serif;
+                    scrollbar-width: thin;
+                    scrollbar-color: var(--accent-primary) transparent;
+                    overflow-x: hidden;
+                    overflow-y: auto;
+                    border-top: 4px solid var(--accent-primary);
+                    border-bottom: 4px solid var(--accent-primary);
+
+                        a {
+                            text-transform: capitalize;
+                            font-size: 14px;
+                            color: var(--text-on-accent-alt);
+                        }
+                    }
+
+                    .stats-box-today {
+                        height: 100px;
+                        padding: 15px;
+                        background: var(--accent-primary-40);
+                        line-height: 120%;
+                        scrollbar-width: thin;
+                        scrollbar-color: var(--accent-primary) transparent;
+                        overflow-x: hidden;
+                        overflow-y: auto;
+
+                        a {
+                            text-transform: capitalize;
+                            font-size: 12px;
+                            font-family: "Open Sans", sans-serif;
+                            color: var(--text-on-accent-alt);
+                        }
+                    }
+
+                    .stats-box-links {
+                        height: 100%;
+                        padding: 10px;
+                        background: var(--accent-primary-40);
+                        display: grid;
+                        grid-template-columns: auto auto;
+                        gap: 5px;
+
+                        a {
+                            background: var(--accent-primary);
+                            width: 100%;
+                            height: 100%;
+                            border-left: 0px solid var(--accent-tertiary);
+                            transition-duration: 0.1s;
+                            font-family: "Noto Rashi Hebrew", serif;
+                            letter-spacing:1px;
+                            font-size: 14px;
+                            color: var(--text-on-accent);
+                            text-align: center;
+                            text-transform: uppercase;
+                        }
+
+                        a:hover {
+                            border-left: 8px solid var(--accent-tertiary);
+                            transition-duration: 0.1s;
+                        }
+                    }
+                }
+            }
+
+            .rh-stats-right {
+                width: 5%;
+                height: 100%;
+                border-right: 3px solid var(--accent-primary);
+                border-top: 3px solid var(--accent-primary);
+                border-bottom: 3px solid var(--accent-primary);
+            }
+        }
+
+}

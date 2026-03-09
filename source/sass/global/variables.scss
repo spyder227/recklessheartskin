@@ -5,16 +5,27 @@
     Variables
 ********************************/
 :root {
-    --bg-primary: rgb(105, 105, 105);
-    --bg-secondary: rgb(65, 65, 65);
+    --bg-primary: rgb(42, 42, 42);
+    --bg-secondary: rgb(91, 91, 91);
 
-    --accent-primary: rgb(133, 69, 49);
+    --accent-primary: rgb(165 91 67);
     --accent-secondary: rgb(150, 80, 60);
+    --accent-tertiary: rgb(173, 82, 54);
 
-    --accent-primary-60: rgba(133, 69, 49, 0.6);
     --accent-primary-80: rgba(133, 69, 49, 0.8);
+    --accent-primary-60: rgba(133, 69, 49, 0.6);
+    --accent-primary-40: rgba(133, 69, 49, 0.4);
+    --accent-primary-20: rgba(133, 69, 49, 0.2);
 
-    --text-on-accent: rgb(255, 255, 255);
+    --accent-secondary-80: rgba(150, 80, 60, 0.8);
+    --accent-secondary-60: rgba(150, 80, 60, 0.6);
+    --accent-secondary-40: rgba(150, 80, 60, 0.4);
+    --accent-secondary-20: rgba(150, 80, 60, 0.2);
+
+    --border-primary: rgb(20, 20, 20);
+
+    --text-on-accent: rgb(10, 10, 10);
+    --text-on-accent-alt: rgb(225, 225, 225);
 
     --text-size-xs: 8px;
     --text-size-sm: 10px;
@@ -50,9 +61,20 @@ body.light {
 
     --accent-primary: rgb(133, 69, 49);
     --accent-secondary: rgb(150, 80, 60);
+    --accent-tertiary: rgb(96, 45, 30);
 
-    --accent-primary-60: rgba(133, 69, 49, 0.6);
     --accent-primary-80: rgba(133, 69, 49, 0.8);
+    --accent-primary-60: rgba(133, 69, 49, 0.6);
+    --accent-primary-40: rgba(133, 69, 49, 0.4);
+    --accent-primary-20: rgba(133, 69, 49, 0.2);
 
-    --text-on-accent: rgb(255, 255, 255);
+    --accent-secondary-80: rgba(150, 80, 60, 0.8);
+    --accent-secondary-60: rgba(150, 80, 60, 0.6);
+    --accent-secondary-40: rgba(150, 80, 60, 0.4);
+    --accent-secondary-20: rgba(150, 80, 60, 0.2);
+
+    --border-primary: rgb(51, 51, 51);
+
+    --text-on-accent: rgb(225, 225, 225);
+    --text-on-accent-alt: rgb(10, 10, 10);
 }
